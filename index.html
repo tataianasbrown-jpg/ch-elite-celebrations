@@ -398,7 +398,17 @@
         <label>Message</label>
         <textarea placeholder="Tell me about your event, colors, and any special requests!"></textarea>
       </div>
-      <button class="btn-submit" onclick="alert('Thank you! Candice will be in touch soon 🎈')">Send Message ✨</button>
+      <button class="btn-submit" onclick="
+        var name = document.querySelector('#contact input[type=text]').value;
+        var phone = document.querySelector('#contact input[type=tel]').value;
+        var email = document.querySelector('#contact input[type=email]').value;
+        var event = document.querySelector('#contact select').value;
+        var date = document.querySelector('#contact input[type=date]').value;
+        var msg = document.querySelector('#contact textarea').value;
+        var subject = encodeURIComponent('Booking Inquiry - CH Elite Celebrations');
+        var body = encodeURIComponent('Name: ' + name + '\nPhone: ' + phone + '\nEmail: ' + email + '\nEvent Type: ' + event + '\nEvent Date: ' + date + '\n\nMessage:\n' + msg);
+        window.location.href = 'mailto:candicektcohen@gmail.com?subject=' + subject + '&body=' + body;
+      ">Send Message ✨</button>
     </div>
   </div>
 </section>
